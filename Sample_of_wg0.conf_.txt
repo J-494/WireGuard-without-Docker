@@ -1,0 +1,43 @@
+[Interface]
+#VPN server private IP address ##
+Address = #192.168.10.1/24
+ 
+##VPN server port ##
+ListenPort = #anyport
+ 
+## VPN server's private key ##
+PrivateKey = #your-private-key
+ 
+## Save and update this config file when a new peer (vpn client) added ##
+SaveConfig = true
+
+[Peer]
+## Desktop/client VPN public key ##
+PublicKey = #client-public-key
+ 
+## client VPN IP address (note the /32 subnet) ##
+AllowedIPs = #192.168.10.2/32
+
+
+Sample--
+
+#Before Adding client
+
+[Interface]
+Address = 192.168.10.1/24
+ListenPort = 51232
+PrivateKey = 1Sd34/pUD8j2J4s7MsdxcxA2uGk45JeEyI8o0TSaVrJYFE=
+SaveConfig = true
+
+
+#After Adding client
+
+[Interface]
+Address = 192.168.10.1/24
+ListenPort = 51232
+PrivateKey = 1Sd34/pUD8j2J4s7MsdxghcxA2uGk45JeEyI8o0TSaVrJYFE=
+SaveConfig = true
+
+[Peer]
+PublicKey = /FqVasd/N3jKgiO5Y2j1DF23lTGG45NyFBNMFGM=EcnyBL5Vk=
+AllowedIPs = 192.168.10.2/32

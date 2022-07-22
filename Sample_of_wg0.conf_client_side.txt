@@ -1,0 +1,31 @@
+##on client site 
+[Interface]
+## This Desktop/client's private key ##
+PrivateKey = 
+ 
+## Client ip address ##
+Address = 192.168.10.2/24
+ 
+[Peer]
+## Debian 10 server public key ##
+PublicKey = 
+ 
+## set ACL ##
+AllowedIPs = 192.168.10.0/24
+ 
+## Your Debian 10 LTS server's public IPv4/IPv6 address and port ##
+Endpoint = #172.105.112.120:51194
+ 
+##  Key connection alive ##
+PersistentKeepalive = 20
+
+Sample--
+[Interface]
+PrivateKey = uASqd/4s7MsdxcxA2uGk45JeEyI8o0KwBFqCs7Msas=
+Address = 192.168.10.2/24
+
+[Peer]
+PublicKey = 1qw2we1/3rkASDUJiJzASFfY+Hvfdgw+Ip1silDTDF6KIKM=
+AllowedIPs = 192.168.10.0/24
+Endpoint = 154.135.47.44:51232
+PersistentKeepalive = 20
