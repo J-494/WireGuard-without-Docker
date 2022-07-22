@@ -1,0 +1,34 @@
+###installing wireguard
+sudo apt update
+sudo apt update --fix-missing
+sudo sh -c "echo 'deb http://deb.debian.org/debian buster-backports main contrib non-free' > /etc/apt/sources.list.d/buster-backports.list"
+sudo apt update
+sudo apt install wireguard
+cd /etc/wireguard/
+umask 077; wg genkey | tee privatekey | wg pubkey > publickey
+ls -l privatekey publickey
+cat privatekey
+cat publickey
+sudo nano /etc/wireguard/wg0.conf
+
+###Start WireGuard VPN
+sudo systemctl enable wg-quick@wg0
+sudo systemctl start wg-quick@wg0
+sudo systemctl status wg-quick@wg0
+sudo wg
+sudo ip a show wg0
+
+###installing Uncomplicated Firewall
+sudo apt update
+sudo apt install ufw
+sudo ufw allow 51820/udp
+sudo ufw enable
+sudo ufw status
+
+### when add new VPN user
+sudo systemctl stop wg-quick@wg0
+sudo nano /etc/wireguard/wg0.conf
+
+### after adding new VPN user
+sudo systemctl start wg-quick@wg0
+
